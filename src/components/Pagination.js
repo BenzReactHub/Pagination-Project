@@ -8,14 +8,15 @@ export const Pagination = ({ postsPerPage, totalPosts, setCurrentPage }) => {
         pageNumbers.push(i)
     }
 
-    const handleClick = (currentPage) => {
+    const handleClick = (e, currentPage) => {
+        e.preventDefault();
         setCurrentPage(currentPage)
     }
     return (
         <nav>
             <ul className='pagination'>
                 {pageNumbers.map((pageNumber, index) => {
-                    return <li key={index} className='page-item'><a href='!#' className='page-link' onClick={() => { handleClick(pageNumber) }}>{pageNumber}</a></li>
+                    return <li key={index} className='page-item'><a href='#' className='page-link' onClick={(e) => { handleClick(e, pageNumber) }}>{pageNumber}</a></li>
                 })}
             </ul>
         </nav>
